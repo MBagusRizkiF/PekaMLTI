@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SIMPUL - Admin Panel</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>SIMPUL</h1>
+  <h2>Panel Admin - Data Masukan Anonim Mahasiswa</h2>
+</header>
+
+<div class="admin-container">
+  <div class="admin-password-prompt" id="admin-password-prompt">
+    <label for="admin-password">Masukkan password admin untuk akses data:</label>
+    <input type="password" id="admin-password" name="admin-password" autocomplete="off" />
+    <button id="admin-login-btn">Masuk</button>
+    <div id="admin-password-error" style="color:red; margin-top:0.5rem; display:none;">Password salah. Coba lagi.</div>
+  </div>
+
+  <div id="admin-panel" style="display:none;">
+    <div class="admin-header">
+      <h2>Data Masukan Anonim Mahasiswa</h2>
+    </div>
+    <div class="feedback-list" id="feedback-list" aria-live="polite" aria-relevant="additions removals"></div>
+    <p style="margin-top: 1rem; font-size: 0.85rem; color:#666;">Pastikan untuk tidak membagikan akses ini secara sembarangan untuk menjaga privasi.</p>
+    <p><button id="admin-logout-btn" style="background:none; border:none; color:#2980b9; cursor:pointer; text-decoration:underline; font-size:0.9rem;">Logout Admin</button></p>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 SIMPUL
+</footer>
+
+<script src="script-admin.js"></script>
+</body>
+</html>

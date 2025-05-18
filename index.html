@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Form Kritik/Keluhan/Saran Anonim</title>
+<link rel="stylesheet" href="frontend/style.css" />
+</head>
+<body>
+<header>
+  <h1>SIMPUL</h1>
+  <h2>Form Kritik / Keluhan / Saran Anonim</h2>
+  <p>Berikan masukan Anda terkait akademik maupun non-akademik secara anonim.</p>
+</header>
+
+<div class="form-container">
+  <form id="feedback-form">
+    <label for="type">Jenis Masukan</label>
+    <select name="type" id="type" required>
+      <option value="" disabled selected>Pilih jenis masukan</option>
+      <option value="Kritik">Kritik</option>
+      <option value="Keluhan">Keluhan</option>
+      <option value="Saran">Saran</option>
+    </select>
+
+    <label for="category">Kategori</label>
+    <select name="category" id="category" required>
+      <option value="" disabled selected>Pilih kategori</option>
+      <option value="Akademik">Akademik</option>
+      <option value="Non-Akademik">Non-Akademik</option>
+    </select>
+
+    <label for="message">Pesan Anda</label>
+    <textarea id="message" name="message" placeholder="Tuliskan kritik, keluhan, atau saran Anda di sini..." required minlength="10"></textarea>
+
+    <button type="submit">Kirim</button>
+    <div class="success-message" id="success-message" role="alert" aria-live="polite" style="display:none;">Terima kasih atas masukan Anda!</div>
+  </form>
+  <p class="info-text" style="margin-top:1rem;text-align:center;">
+    <a href="frontend/admin.html" style="color:#2980b9; text-decoration:underline;">Masuk sebagai Admin untuk lihat data masukan</a>
+  </p>
+</div>
+
+<div id="error-message" class="error-message" style="display:none;"></div>
+<div id="success-message" class="success-message" style="display:none;"></div>
+
+<footer>
+  &copy; 2025 SIMPUL
+</footer>
+
+<script src="frontend/script-form.js"></script>
+<script>
+  document.getElementById('feedback-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    // Here you can add your form submission logic (e.g., AJAX request)
+    // For demonstration, we'll just show the success message
+    const successMessage = document.getElementById('success-message');
+    successMessage.style.display = 'block';
+    // Automatically hide the success message after 5 seconds
+    setTimeout(() => {
+      successMessage.style.display = 'none';
+    }, 5000);
+  });
+  function showError(message) {
+    const errorMessage = document.getElementById('error-message');
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+    // Automatically hide the error message after 5 seconds
+    setTimeout(() => {
+      errorMessage.style.display = 'none';
+    }, 5000);
+  }
+</script>
+</body>
+</html>
+
